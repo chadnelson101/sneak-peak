@@ -631,8 +631,8 @@ input{
     border: 2px solid var(--color);
     border-radius: 6px;
     position: relative;
-    margin-left: 30%;
-    top: 24%;
+    margin-left: 26%;
+    top: 2%;
     background: var(--primary-color);
 }
 #add::before {
