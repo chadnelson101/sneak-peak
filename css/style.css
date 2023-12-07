@@ -248,7 +248,8 @@
  }
  footer{
     background-color: #111;
-    margin-top: 300px;
+    top: 300px;
+    position: relative;
   }
   .footercontainer{
     width: 100%;
