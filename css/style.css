@@ -564,10 +564,12 @@ input{
     width: 300px;
     height: 30px;
 }
-#productsContainer {
-    display: grid;
+#product {
+  display: flex;
+  margin-left: 0%;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 20px; */
 }
   
 .card {
