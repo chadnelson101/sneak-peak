@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let menuToggle = document.querySelector('.menuToggle');
     let sidebar = document.querySelector('.sidebar');
-
     menuToggle.addEventListener('click', function() {
         menuToggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -71,6 +70,7 @@ products = JSON.parse(localStorage.getItem('products'));
 
 let table = document.querySelector('table');
 
+// edit function
 function edit(index) {
     // getting items to edit
     let productEdit = products[index];
@@ -83,14 +83,13 @@ function edit(index) {
     let modal = new bootstrap.Modal(document.getElementById('editModal'));
     modal.show();
 
-    document.getElementById('saveEdit').setAttribute('data-index', index);
+    document.getElementById('save').setAttribute('data-index', index);
 }
 
 // to save edited product
 function save() {
-    let index = document.getElementById('saveEdit').getAttribute('data-index');
+    let index = document.getElementById('save').getAttribute('data-index');
     let editedProduct = products[index];
-
     // new values for products
     editedProduct.name = document.getElementById('editName').value;
     editedProduct.price = parseFloat(document.getElementById('editPrice').value);

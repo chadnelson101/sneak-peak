@@ -64,7 +64,7 @@
             </div>
         </ul>
     </div>
-    <button class="add" data-bs-toggle="modal" data-bs-target="#addModal">ADD</button>
+    <button class="add" id="addButton" data-bs-toggle="modal" data-bs-target="#addModal">ADD</button>
 
     <div class="modal" id="addModal" tabindex="-1">
         <div class="modal-dialog">
@@ -79,7 +79,7 @@
                     <input type="text" id="Name" class="form-control">
                     <label for="productPrice">Price:</label>
                     <input type="number" id="Price" class="form-control">
-                    <label for="productImage">Image URL:</label>
+                    <label for="productImage"><img src="#" alt="">Image URL:</label>
                     <input type="text" id="Image" class="form-control">
                 </div>
                 <div class="modal-footer">
@@ -110,7 +110,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-bs-dismiss="modal">Close</button>
-                <button type="button" onclick="saveEdit()">Save Changes</button>
+                <button type="button" id="save" onclick="save()">Save Changes</button>
             </div>
         </div>
     </div>
