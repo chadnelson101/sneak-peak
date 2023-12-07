@@ -43,3 +43,4 @@ document.querySelectorAll('.remove-btn').forEach(button => {
 function updateLocalStorage() {
     localStorage.setItem('product', JSON.stringify(cart));
 }
+
