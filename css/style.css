@@ -248,7 +248,8 @@
  }
  footer{
     background-color: #111;
-    margin-top: 300px;
+    top: 300px;
+    position: relative;
   }
   .footercontainer{
     width: 100%;
@@ -563,6 +564,11 @@ tr td:first-child{
 input{
     width: 300px;
     height: 30px;
+}
+
+#search{
+  margin-left: 0%;
+  border-radius: 10px;
 }
 #product {
   display: flex;

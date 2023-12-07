@@ -1,41 +1,63 @@
 document.addEventListener("DOMContentLoaded", function() {
     let menuToggle = document.querySelector('.menuToggle');
     let sidebar = document.querySelector('.sidebar');
-
-menuToggle.addEventListener('click', function() {
-        menuToggle.classList.toggle('active');
-        sidebar.classList.toggle('active');
+    let main = document.querySelector('main');
+    let sortButton = document.querySelector('.sort-button');
+  
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      sidebar.classList.toggle('active');
     });
-});
-
-let product = []
-let main = document.querySelector('main');
-
-let items = JSON.parse(localStorage.getItem('products'));
-
-main.innerHTML = items.map(function(item, index) {
-    return`
-    <div class="card">
-         <div class="image">
-            <img class='move'src="${item.url}">
-        </div>
-        <div class="title">${item.name}</div>
-        <div class="price">R${item.price}</div>
-        <button  id='add' data-cart value='${index}'>Add to cart</button>
-    </div>`
-}).join('');
-
-
-function addToCart(index) {
-    product = JSON.parse(localStorage.getItem('product'));
-    product.push(items[index]);
-    localStorage.setItem('product',JSON.stringify(product));
-}
-
-// add to cart function for button
-main.addEventListener('click',function(event) {
-    if(event.target.hasAttribute('data-cart')){
-        // alert('button clicked')
-        addToCart(event.target.value)
+  
+    let product = [];
+    let items = JSON.parse(localStorage.getItem('products'));
+  
+    function renderProducts(productList) {
+      main.innerHTML = productList.map(function(item, index) {
+        return `
+          <div class="card">
+            <div class="image">
+              <img class='move' src="${item.url}">
+            </div>
+            <div class="title">${item.name}</div>
+            <div class="price">R${item.price}</div>
+            <button id='add' data-cart value='${index}'>Add to cart</button>
+          </div>`;
+      }).join('');
     }
-})
+  
+    renderProducts(items);
+  
+    function addToCart(index) {
+      product = JSON.parse(localStorage.getItem('product')) || [];
+      product.push(items[index]);
+      localStorage.setItem('product', JSON.stringify(product));
+    }
+  
+    // add to cart function for button
+    main.addEventListener('click', function(event) {
+      if (event.target.hasAttribute('data-cart')) {
+        addToCart(event.target.value);
+      }
+    });
+  
+    // Sorting functionality
+    sortButton.addEventListener('click', function() {
+      // Show/hide dropdown options here
+      // For simplicity, let's just toggle a class for demonstration
+      sortButton.classList.toggle('active');
+    });
+    // Implement actual sorting logic here based on user selection
+    // For simplicity, let's sort by price
+    sortButton.addEventListener('click', function(event) {
+      let sortOrder = event.target.classList.contains('active') ? 'asc' : 'desc';
+  
+      if (sortOrder === 'asc') {
+        items.sort((a, b) => a.price - b.price);
+      } else {
+        items.sort((a, b) => b.price - a.price);
+      }
+  
+      renderProducts(items);
+    });
+  });
