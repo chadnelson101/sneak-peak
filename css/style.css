@@ -711,3 +711,21 @@ input{
     }
   }
   /* admin page ends */
+
+  /* cart page start */
+.table td{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.table img{
+    width: 200px;
+}
+.table button{
+    margin-left: 50%;
+    margin-top: 23%;
+}
+.table input{
+    width: 50px;
+}
+  /* cart page end */
