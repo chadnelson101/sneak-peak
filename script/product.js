@@ -27,6 +27,7 @@ main.innerHTML = items.map(function(item, index) {
 
 
 function addToCart(index) {
+    product = JSON.parse(localStorage.getItem('product'));
     product.push(items[index]);
     localStorage.setItem('product',JSON.stringify(product));
 }

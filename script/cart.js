@@ -1,10 +1,10 @@
 let main = document.querySelector('main');
 
 // Load existing items from local storage or initialize an empty array
-let items = JSON.parse(localStorage.getItem('product')) || [];
+let cart = JSON.parse(localStorage.getItem('product')) || [];
 
 
-main.innerHTML = items.map(function(item, index) {
+main.innerHTML = cart.map(function(item, index) {
     return `
         <table class="table">
             <thead>
@@ -34,12 +34,12 @@ main.innerHTML = items.map(function(item, index) {
 document.querySelectorAll('.remove-btn').forEach(button => {
     button.addEventListener('click', function() {
         let indexToRemove = this.getAttribute('data-index');
-        items.splice(indexToRemove, 1);
+        cart.splice(indexToRemove, 1);
         updateLocalStorage();
         location.reload(); // Refresh the page to reflect the changes
     });
 });
 
 function updateLocalStorage() {
-    localStorage.setItem('product', JSON.stringify(items));
+    localStorage.setItem('product', JSON.stringify(cart));
 }
