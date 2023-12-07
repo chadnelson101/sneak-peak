@@ -563,6 +563,11 @@ input{
     width: 300px;
     height: 30px;
 }
+
+#search{
+  margin-left: 0%;
+  border-radius: 10px;
+}
 #product {
   display: flex;
   margin-left: 0%;
