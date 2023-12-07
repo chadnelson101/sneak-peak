@@ -588,15 +588,16 @@ input{
 .card:hover {
     transform: scale(1.05);
 }  
-.card.image {
+.card.imag {
+    position: absolute;
     background: rgb(241, 241, 241);
     width: 100px;
     height: 100px; /* Adjust the height as needed */
-    display: grid;
-    margin-top: 1px;
+    /* display: grid; */
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-left: 10%;
 }
 .card .title{
     font-family: Arial, Helvetica, sans-serif;
