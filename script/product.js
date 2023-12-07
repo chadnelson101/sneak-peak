@@ -21,7 +21,7 @@ main.innerHTML = items.map(function(item, index) {
         </div>
         <div class="title">${item.name}</div>
         <div class="price">R${item.price}</div>
-        <button id='add' data-cart value='${index}'>Add to cart</button>
+        <button  id='add' data-cart value='${index}'><span>Add to cart</span></button>
     </div>`
 }).join('');
 
