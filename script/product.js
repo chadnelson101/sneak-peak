@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let sidebar = document.querySelector('.sidebar');
     let main = document.querySelector('main');
     let sortButton = document.querySelector('.sort-button');
+    
   
     menuToggle.addEventListener('click', function() {
       menuToggle.classList.toggle('active');
@@ -27,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     renderProducts(items);
+
+
   
     function addToCart(index) {
       product = JSON.parse(localStorage.getItem('product')) || [];
@@ -94,3 +97,5 @@ function saveEdit() {
     let modal = new bootstrap.Modal(document.getElementById('editModal'));
     modal.hide();
 }
+
+
