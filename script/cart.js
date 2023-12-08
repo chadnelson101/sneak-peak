@@ -64,3 +64,4 @@ function updateLocalStorage() {
     localStorage.setItem('product', JSON.stringify(cart));
 }
 
+
