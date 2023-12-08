@@ -678,8 +678,6 @@ input{
   /* admin page ends */
 
   /* cart page start */
-.table{
-}
 .table td{
     align-items: center;
     justify-content: center;
