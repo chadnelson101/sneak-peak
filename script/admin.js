@@ -121,7 +121,7 @@ function save() {
     // new values for products
     editedProduct.name = document.getElementById('editName').value;
     editedProduct.price = parseFloat(document.getElementById('editPrice').value);
-    editedProduct.url = document.getElementById('editImage').value;
+    editedProduct.url = document.getElementById('editImage').vaule;
 
     products[index] = editedProduct;
 
