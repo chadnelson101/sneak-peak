@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let sidebar = document.querySelector('.sidebar');
     let main = document.querySelector('main');
     let sortButton = document.querySelector('.sort-button');
-    
   
     menuToggle.addEventListener('click', function() {
       menuToggle.classList.toggle('active');
@@ -16,19 +15,18 @@ document.addEventListener("DOMContentLoaded", function() {
     function renderProducts(productList) {
       main.innerHTML = productList.map(function(item, index) {
         return `
-          <div class="card">
-            <div class="image">
-              <img class='move' src="${item.url}">
-            </div>
-            <div class="title">${item.name}</div>
-            <div class="price">R${item.price}</div>
-            <button id='add' data-cart value='${index}'>Add to cart</button>
-          </div>`;
+       <div class="card" style="width: 18rem;" id='products'>
+           <img src="${item.url}" class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">${item.name}</h5>
+           <p class="card-text">${item.price}</p>
+           <button id='add' data-cart value='${index}'>Add to cart</button>
+        </div>
+      </div>`;
       }).join('');
     }
   
     renderProducts(items);
-
 
   
     function addToCart(index) {
