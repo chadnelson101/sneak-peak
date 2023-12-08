@@ -22,8 +22,6 @@ function inputDisplay(product) {
     // Display quantity and total in their respective inputs
     quantityInput.value = quantity-amount;
     totalInput.value.innerHTML = productTotal;
-
-    // You can update other parts of your UI as needed
 }
 
 main.innerHTML = cart.map(function(item, index) {
