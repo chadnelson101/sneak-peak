@@ -6,11 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
         sidebar.classList.toggle('active');
     });
     
+    
+
     function addProduct() {
     // Get values from the form fields
-    let Name = document.getElementById('Name').value;
-    let Price = parseFloat(document.getElementById('Price').value);
-    let Image = document.getElementById('Image').value;
+    // let savedProduct = products[index];
+
+    let Name = document.getElementById('name').value;
+    let Price = parseFloat(document.getElementById('price').value);
+    let Image = document.getElementById('image').value;
 
     // Create a new product object
     let newProduct = new Constructor(products.length + 1, Name, Price, Image);
@@ -24,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Refresh the table
     chad();
+
+     // Set the data-save attribute on the 'Add' button
+     addButton.setAttribute('data-save', products.length - 1);
     
     // Close the modal
     let Modal = new bootstrap.Modal(document.getElementById('Modal'));
@@ -32,6 +39,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 let addButton = document.getElementById('addButton');
 addButton.addEventListener('click', addProduct);
+
+// to save added product
+function saveAddedProduct() {
+    // Get the index from the 'data-save' attribute of the addButton
+    let index = document.getElementById('addButton').getAttribute('data-save');
+
+    // Get the saved product from the array
+    let savedProduct = products[index];
+
+    // Update the saved product with new values
+    savedProduct.Name = document.getElementById('name').value;
+    savedProduct.Price = parseFloat(document.getElementById('price').value);
+    savedProduct.Image = document.getElementById('image').value;
+
+    // Update the product in the array
+    products[index] = savedProduct;
+
+    // Update local storage and refresh the table
+    localStorage.setItem('products', JSON.stringify(products));
+    chad();
+}
 
 });
 
@@ -133,6 +161,8 @@ function remove(position) {
 
 table.addEventListener('click', function(event) {
     if (event.target.classList.contains('delete')) {
-        remove(event.target.parentNode.rowIndex - 1);
+        // remove(event.target.parentNode.rowIndex - 1);
+        let products = event.target.getAttribute('value');
+        remove(products)
     }
 });
